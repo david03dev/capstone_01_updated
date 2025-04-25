@@ -5,7 +5,7 @@ class OrangeHRMLocators:
     # Login Page Locators
     username_input = (By.NAME, "username")
     password_input = (By.NAME, "password")
-    login_button = (By.XPATH, "//button[@type='submit']") #//button[@type='submit']
+    login_button = (By.XPATH, "//button[@type='submit']")
     
     #
     url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
