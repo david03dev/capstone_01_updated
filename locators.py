@@ -17,7 +17,7 @@ class OrangeHRMLocators:
     add_employee_button = (By.XPATH, "//a[@class='oxd-topbar-body-nav-tab-item' and text()='Add Employee']") 
     first_name_input = (By.XPATH, "//input[@placeholder='First Name']") 
     last_name_input = (By.XPATH, "//input[@placeholder='Last Name']")   
-    save_button = (By.XPATH, "//button[@type='submit']")    #//button[@type='submit']
+    save_button = (By.XPATH, "//button[@type='submit']") 
 
     employee_list_button = (By.XPATH, "//a[@class='oxd-topbar-body-nav-tab-item' and text()='Employee List']")
 
