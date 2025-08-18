@@ -1,5 +1,5 @@
 # test_cases.py
-import unittest
+import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
@@ -12,7 +12,7 @@ import time
 
 
 # Page Object for Login Page
-class TestLogin(unittest.TestCase):
+class TestLogin():
     def setUp(self):
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.get(OrangeHRMLocators.url)
@@ -26,7 +26,7 @@ class TestLogin(unittest.TestCase):
         # Wait for the dashboard to load
         WebDriverWait(self.driver, 20).until(
             EC.visibility_of_element_located((By.XPATH, "//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")))
-        self.assertIn("dashboard", self.driver.current_url)
+        assert "dashboard", self.driver.current_url
 
     def test_invalid_login(self):
         login_page = LoginPage(self.driver)
@@ -37,12 +37,12 @@ class TestLogin(unittest.TestCase):
         error_message = WebDriverWait(self.driver, 20).until(
             EC.visibility_of_element_located(OrangeHRMLocators.error_message_locator)
         ).text
-        self.assertEqual(error_message, "Invalid credentials")
+        assert error_message, "Invalid credentials"
 
     def tearDown(self):
         self.driver.quit()
 
-class TestPIM(unittest.TestCase):
+class TestPIM():
     def setUp(self):
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.get(OrangeHRMLocators.dashboard_url)
@@ -62,7 +62,5 @@ class TestPIM(unittest.TestCase):
         success_message = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(OrangeHRMLocators.pim_success)
         ).text
-        self.assertIn("David Selvaraj", success_message)
+        assert "David Selvaraj", success_message
 
-if __name__ == "__main__":
-    unittest.main()

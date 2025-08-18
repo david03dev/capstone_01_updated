@@ -13,14 +13,15 @@ class OrangeHRMLocators:
     dashboard_url = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index"
 
     # PIM Page Locators
-    pim_menu = (By.XPATH, "//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']") 
+    #pim_xpath = "//a[@class='oxd-main-menu-item']/span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']"
+    pim_menu = (By.XPATH, "//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='PIM']")
+
     add_employee_button = (By.XPATH, "//a[@class='oxd-topbar-body-nav-tab-item' and text()='Add Employee']") 
     first_name_input = (By.XPATH, "//input[@placeholder='First Name']") 
     last_name_input = (By.XPATH, "//input[@placeholder='Last Name']")   
     save_button = (By.XPATH, "//button[@type='submit']") 
 
     employee_list_button = (By.XPATH, "//a[@class='oxd-topbar-body-nav-tab-item' and text()='Employee List']")
-
 
 
     # Error message locator

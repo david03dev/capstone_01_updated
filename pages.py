@@ -2,7 +2,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import OrangeHRMLocators
-from selenium.webdriver.common.by import By
 import time
 
 class LoginPage:
