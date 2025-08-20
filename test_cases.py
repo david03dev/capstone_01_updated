@@ -3,7 +3,7 @@ import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-from pages import LoginPage, PIMPage
+from pages import LoginPage
 from locators import OrangeHRMLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,7 +12,7 @@ import time
 
 
 # Page Object for Login Page
-class TestLogin():
+class test_Login():
     def setUp(self):
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.get(OrangeHRMLocators.url)
