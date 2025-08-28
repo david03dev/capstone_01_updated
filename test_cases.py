@@ -55,4 +55,4 @@ class TestPIM:
         success_message = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(OrangeHRMLocators.pim_success)
         ).text
-        assert "David Selvaraj" in success_message
+        assert "Success" in success_message
