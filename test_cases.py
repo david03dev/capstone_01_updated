@@ -24,10 +24,10 @@ class TestLogin:
         login_page.enter_password("admin123")
         login_page.click_login()
 
-        success = WebDriverWait(driver, 20).until(
+        dashboard_label = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located((By.XPATH, "//h6[text()='Dashboard']"))
         ).text
-        assert "Dashboard" in success
+        assert "Dashboard" in dashboard_label
 
     def test_invalid_login(self, setup_driver):
         driver = setup_driver
