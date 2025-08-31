@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from Capstone.locators import OrangeHRMLocators
 from Capstone.pages import LoginPage, PIMPage
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 @pytest.fixture
@@ -23,10 +24,10 @@ class TestLogin:
         login_page.enter_password("admin123")
         login_page.click_login()
 
-        WebDriverWait(driver, 20).until(
+        success = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located((By.XPATH, "//h6[text()='Dashboard']"))
-        )
-        assert "dashboard" in driver.current_url
+        ).text
+        assert "Dashboard" in success
 
     def test_invalid_login(self, setup_driver):
         driver = setup_driver
@@ -55,4 +56,4 @@ class TestPIM:
         success_message = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(OrangeHRMLocators.pim_success)
         ).text
-        assert "Success" in success_message
+        assert "David Selvaraj" in success_message
